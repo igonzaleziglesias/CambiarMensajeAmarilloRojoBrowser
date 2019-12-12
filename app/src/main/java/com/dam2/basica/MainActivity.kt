@@ -4,11 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.google.android.material.snackbar.Snackbar
-
-
-
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.design.snackbar
@@ -24,52 +19,37 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-
-
-        }
-
 
         botonsaludo.setOnClickListener {
-            textoSaludo.setText("Hola que tal")
+            textoSaludo.setText("Hola que tal")//introduce el texto en el textview
 
         }
 
         tostada.setOnClickListener {
-            toast("HOLA!!!")
-            it.snackbar("MUEREEEEEEEEEEEE")
+            toast("HOLA!!!")//toast el mensaje
+            it.snackbar("MUEREEEEEEEEEEEE")//snackbar con el mensaje
         }
-
-
-        //val intent = Intent(this, CambiarColores::class.java)
-        // intent.putExtra("color", "Amarillo")
-        //    startActivity(intent)
-
-
 
 
     }
 
 
-    fun cambiarMensaje(v:View){
+    fun cambiarMensaje(v:View){//cambia el mensaje del textview e introduce la hora, probando crear funcion y asignarle el on click listener desde el contain main
         val formato=SimpleDateFormat("HH:mm:ss")
         val fechaActual= Calendar.getInstance().getTime()
         val string= formato.format(fechaActual)
         textoSaludo.setText("La hora es "+string)
     }
 
-    fun cambiarRojo(v: View) {
+    fun cambiarRojo(v: View) {//cambiar a rojo el textview de la otra ativity
         startActivity(intentFor<CambiarColores>("color" to "ROJO"))
     }
 
-    fun cambiarAmarillo(v: View) {
+    fun cambiarAmarillo(v: View) {//cambiar a amaarillo el textview de la otra activity
         startActivity(intentFor<CambiarColores>("color" to "AMARILLO"))
     }
 
-    fun iraInternet(v: View) {
+    fun iraInternet(v: View) {//utilizamos el browse para abrir un enlace al pulsar el boton
         browse("https://euw.leagueoflegends.com/es/")
     }
 

@@ -15,13 +15,13 @@ class CambiarColores : AppCompatActivity() {
 
 
         when (valor) {
-            "AMARILLO" -> {
+            "AMARILLO" -> {//cambia el fondo del textview a amarillo
                 textoColores.setBackgroundResource(R.color.amarillo)
                 textoColores.setText(valor)
                 }
 
 
-             "ROJO" -> {
+             "ROJO" -> {//cambia el fondo del textview a rojo
                   textoColores.setBackgroundResource(R.color.rojo)
                   textoColores.setText(valor)
                   }
@@ -30,7 +30,7 @@ class CambiarColores : AppCompatActivity() {
 
     
 
-    fun volver(v: View){
+    fun volver(v: View){//cierra la activity y volvemos a la main activity
         finish()
     }
 
